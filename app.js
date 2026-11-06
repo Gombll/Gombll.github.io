@@ -79,6 +79,18 @@ const BUSINESS = {
     ],
     wa: "Hola Alvaro, tengo una distribuidora de gases y me interesa VegaFact.",
   },
+  web: {
+    problem: "Tus clientes te buscan en Google y en el celular, y hoy no te encuentran.",
+    product: "Una página web para tu negocio",
+    anchor: "#web-demo",
+    points: [
+      "Tu nombre, tus productos, tu horario y tu ubicación en un solo enlace.",
+      "Botón que abre WhatsApp con el pedido ya escrito.",
+      "Se ve bien en el celular y carga rápido con datos móviles.",
+      "Tú me pides los cambios y yo los hago.",
+    ],
+    wa: "Hola Alvaro, quiero una página web para mi negocio.",
+  },
   software: {
     problem: "Ya tienes tu sistema y solo necesitas que emita comprobantes electrónicos.",
     product: "ApiFact",
@@ -592,3 +604,99 @@ $("#apiRepeat").addEventListener("click", () => {
   result.className = "api__result is-info";
   result.innerHTML = `<strong>Misma Idempotency-Key, mismo comprobante</strong>La API devuelve la factura F001-87 que ya existe (estado ${apiSent ? apiSent.status : "—"}). No crea otra ni la envía de nuevo a SUNAT.`;
 });
+
+/* ---------- Páginas web: boceto en vivo ---------- */
+const WEB_TYPES = {
+  bodega: {
+    label: "bodega",
+    tag: "Abarrotes, bebidas y más, a la vuelta de tu casa. Pide por WhatsApp y te lo llevamos.",
+    nav: "Productos",
+    section: "Lo más pedido",
+    cta: "Pedir por WhatsApp",
+    hours: "Lun a dom · 7:00 a 22:00",
+    items: [["Arroz extra 5 kg", "S/ 24.90"], ["Aceite vegetal 1 L", "S/ 9.50"], ["Gaseosa 3 L", "S/ 12.00"]],
+  },
+  restaurante: {
+    label: "restaurante",
+    tag: "Menú del día, carta criolla y delivery en la zona. Reserva tu mesa o pide para llevar.",
+    nav: "Carta",
+    section: "Nuestra carta",
+    cta: "Reservar o pedir",
+    hours: "Mar a dom · 12:00 a 22:00",
+    items: [["Lomo saltado", "S/ 28.00"], ["Ají de gallina", "S/ 22.00"], ["Chicha morada 1 L", "S/ 8.00"]],
+  },
+  licoreria: {
+    label: "licorería",
+    tag: "Cervezas, piscos y vinos con delivery hasta medianoche. Hielo y piqueos para tu reunión.",
+    nav: "Bebidas",
+    section: "Lo más pedido",
+    cta: "Pedir delivery",
+    hours: "Todos los días · 10:00 a 00:00",
+    items: [["Six pack de cerveza", "S/ 27.00"], ["Pisco quebranta 700 ml", "S/ 39.90"], ["Hielo en bolsa 3 kg", "S/ 6.00"]],
+    legal: true,
+  },
+  servicios: {
+    label: "negocio de servicios",
+    tag: "Atención profesional con cita previa. Escríbenos y te respondemos el mismo día.",
+    nav: "Servicios",
+    section: "Servicios",
+    cta: "Pedir una cita",
+    hours: "Lun a sáb · 9:00 a 19:00",
+    items: [["Diagnóstico", "Desde S/ 50"], ["Mantenimiento", "Desde S/ 120"], ["Atención a domicilio", "Consultar"]],
+  },
+};
+const COLOR_NAMES = { "#d9480f": "naranja", "#8e1b3a": "vino", "#2e6bc6": "azul", "#1c7a5a": "verde", "#14203a": "azul noche" };
+const web = { type: "bodega", color: "#d9480f", view: "pc" };
+// Nombre de ejemplo por tipo; solo se cambia si el visitante no escribió el suyo.
+const WEB_SAMPLE = { bodega: "Bodega Don Lucho", restaurante: "Sabor Norteño", licoreria: "Licorería La Esquina", servicios: "Taller Ramírez" };
+
+const slug = (s) => norm(s).replace(/[^a-z0-9]+/g, "") || "tunegocio";
+
+function renderWeb() {
+  const t = WEB_TYPES[web.type];
+  const name = $("#webName").value.trim() || "Tu negocio";
+  const prev = $("#webPreview");
+  prev.style.setProperty("--brand", web.color);
+  prev.dataset.view = web.view;
+  $("#webUrl").textContent = slug(name) + ".pe";
+  $("#webLogo").textContent = name.charAt(0).toUpperCase();
+  $("#webBrand").textContent = name;
+  $("#webTitle").textContent = name;
+  $("#webTag").textContent = t.tag;
+  $("#webCta").textContent = t.cta;
+  $("#webNavItems").textContent = t.nav;
+  $("#webSection").textContent = t.section;
+  $("#webHours").textContent = t.hours;
+  $("#webLegal").hidden = !t.legal;
+  const list = $("#webItems");
+  list.innerHTML = t.items.map(() => '<li><span class="site__img"></span><span class="site__item"></span><span class="site__price"></span></li>').join("");
+  $$("li", list).forEach((li, i) => {
+    $(".site__item", li).textContent = t.items[i][0];
+    $(".site__price", li).textContent = t.items[i][1];
+  });
+  const wa = $("#webWa");
+  wa.dataset.wa = `Hola Alvaro, quiero una página web para mi ${t.label} "${name}", en color ${COLOR_NAMES[web.color] || "a elegir"}. ¿Me cuentas cómo trabajas?`;
+  wireWhatsApp(wa.parentElement);
+}
+
+function radioGroup(sel, attr, key) {
+  const btns = $$(sel);
+  btns.forEach((b) =>
+    b.addEventListener("click", () => {
+      btns.forEach((x) => x.setAttribute("aria-checked", String(x === b)));
+      if (key === "type") {
+        const input = $("#webName");
+        if (!input.value.trim() || Object.values(WEB_SAMPLE).includes(input.value.trim())) input.value = WEB_SAMPLE[b.dataset[attr]];
+      }
+      web[key] = b.dataset[attr];
+      renderWeb();
+      window.Motion?.relayout?.();
+    })
+  );
+}
+radioGroup("[data-type]", "type", "type");
+radioGroup("[data-color]", "color", "color");
+radioGroup("[data-view]", "view", "view");
+$("#webName").addEventListener("input", renderWeb);
+$("#webForm").addEventListener("submit", (e) => e.preventDefault());
+renderWeb();

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Alvaro Vega · Software para negocios</title>
-  <meta name="description" content="Sistemas de caja, inventario y facturación electrónica para bodegas, licorerías, restaurantes y distribuidoras de gas en Perú. Pruébalos aquí mismo.">
+  <meta name="description" content="Sistemas de caja, inventario y facturación electrónica, y páginas web para bodegas, licorerías, restaurantes y distribuidoras de gas en Perú. Pruébalos aquí mismo.">
   <meta name="theme-color" content="#14203A">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +31,7 @@
       <a href="#soluciones">Soluciones</a>
       <a href="#caserito">Caserito POS</a>
       <a href="#vegafact">VegaFact</a>
+      <a href="#paginas-web">Páginas web</a>
       <a href="#apifact">ApiFact</a>
       <a href="#sobre-mi">Sobre mí</a>
       <span class="nav__ind" aria-hidden="true"></span>
@@ -46,7 +47,7 @@
   <div class="wrap hero__grid">
     <div class="hero__copy">
       <h1>Programas para negocios que venden todos los días.</h1>
-      <p class="lead">Soy Alvaro Vega. Hago sistemas de caja, inventario y facturación electrónica para bodegas, licorerías, restaurantes y distribuidoras en Perú. Siguen vendiendo aunque se caiga el internet.</p>
+      <p class="lead">Soy Alvaro Vega. Hago sistemas de caja, inventario y facturación electrónica para bodegas, licorerías, restaurantes y distribuidoras en Perú, y también la página web de tu negocio. Mis sistemas siguen vendiendo aunque se caiga el internet.</p>
       <div class="actions">
         <a class="btn btn--wa" data-wa="Hola Alvaro, quiero que me cuentes qué sistema le sirve a mi negocio." href="#contacto">Escribirme por WhatsApp</a>
         <a class="btn btn--ghost" href="#caserito-demo">Probar la caja</a>
@@ -72,6 +73,7 @@
           <p class="t-row"><span>Sistema de caja (POS)</span><span>1</span></p>
           <p class="t-row"><span>Facturación SUNAT</span><span>1</span></p>
           <p class="t-row"><span>Inventario y almacenes</span><span>1</span></p>
+          <p class="t-row"><span>Páginas web</span><span>1</span></p>
           <p class="t-row"><span>Sistemas a medida</span><span>1</span></p>
           <p class="t-row"><span>Soporte por WhatsApp</span><span>1</span></p>
           <p class="t-rule"></p>
@@ -99,6 +101,7 @@
         <button role="tab" aria-selected="false" aria-controls="pick-panel" data-biz="licoreria">Licorería</button>
         <button role="tab" aria-selected="false" aria-controls="pick-panel" data-biz="restaurante">Restaurante</button>
         <button role="tab" aria-selected="false" aria-controls="pick-panel" data-biz="gas">Distribuidora de gases</button>
+        <button role="tab" aria-selected="false" aria-controls="pick-panel" data-biz="web">Solo quiero una página web</button>
         <button role="tab" aria-selected="false" aria-controls="pick-panel" data-biz="software">Tengo mi propio sistema</button>
         <button role="tab" aria-selected="false" aria-controls="pick-panel" data-biz="otro">Otro</button>
       </div>
@@ -356,6 +359,162 @@
   </div>
 </section>
 
+<!-- PAGINAS WEB -->
+<section class="section product product--web" id="paginas-web">
+  <div class="wrap">
+    <div class="product__head">
+      <div>
+        <p class="product__kind">Para que te encuentren y te escriban</p>
+        <h2 class="product__name">Creo tu página web</h2>
+      </div>
+      <p class="product__pitch">Una página con tu nombre, tus productos, tu horario y un botón que abre WhatsApp con el pedido ya escrito. Se ve bien en el celular, que es donde te van a buscar tus clientes.</p>
+    </div>
+
+    <div class="demo demo--light" id="web-demo">
+      <div class="demo__bar">
+        <p class="demo__title">Arma un boceto de la página de tu negocio y mira cómo quedaría. La tuya la diseño contigo, con tus fotos y tu marca.</p>
+        <div class="seg" role="radiogroup" aria-label="Vista previa en">
+          <button type="button" role="radio" aria-checked="true" data-view="pc">Computadora</button>
+          <button type="button" role="radio" aria-checked="false" data-view="cel">Celular</button>
+        </div>
+      </div>
+
+      <div class="web">
+        <form class="web__ctl" id="webForm" autocomplete="off">
+          <label for="webName">Nombre de tu negocio</label>
+          <input id="webName" type="text" maxlength="28" value="Bodega Don Lucho">
+
+          <p class="web__lbl" id="webTypeLbl">Tipo de negocio</p>
+          <div class="web__types" role="radiogroup" aria-labelledby="webTypeLbl">
+            <button type="button" role="radio" aria-checked="true" data-type="bodega">Bodega</button>
+            <button type="button" role="radio" aria-checked="false" data-type="restaurante">Restaurante</button>
+            <button type="button" role="radio" aria-checked="false" data-type="licoreria">Licorería</button>
+            <button type="button" role="radio" aria-checked="false" data-type="servicios">Servicios</button>
+          </div>
+
+          <p class="web__lbl" id="webColorLbl">Color de tu marca</p>
+          <div class="web__colors" role="radiogroup" aria-labelledby="webColorLbl">
+            <button type="button" role="radio" aria-checked="true" data-color="#d9480f" style="--c:#d9480f" aria-label="Naranja"></button>
+            <button type="button" role="radio" aria-checked="false" data-color="#8e1b3a" style="--c:#8e1b3a" aria-label="Vino"></button>
+            <button type="button" role="radio" aria-checked="false" data-color="#2e6bc6" style="--c:#2e6bc6" aria-label="Azul"></button>
+            <button type="button" role="radio" aria-checked="false" data-color="#1c7a5a" style="--c:#1c7a5a" aria-label="Verde"></button>
+            <button type="button" role="radio" aria-checked="false" data-color="#14203a" style="--c:#14203a" aria-label="Azul noche"></button>
+          </div>
+
+          <a class="btn btn--wa btn--block" id="webWa" data-wa="Hola Alvaro, quiero una página web para mi negocio." href="#contacto">Quiero una página así</a>
+          <p class="web__note">Te llega a WhatsApp con lo que elegiste.</p>
+        </form>
+
+        <div class="web__stage">
+          <div class="browser" id="webPreview" data-view="pc" style="--brand:#d9480f">
+            <div class="browser__bar" aria-hidden="true">
+              <span class="browser__dots"><i></i><i></i><i></i></span>
+              <span class="browser__url" id="webUrl">bodegadonlucho.pe</span>
+            </div>
+            <div class="site" aria-label="Vista previa de la página">
+              <div class="site__nav">
+                <span class="site__logo" id="webLogo">B</span>
+                <span class="site__brand" id="webBrand">Bodega Don Lucho</span>
+                <span class="site__links" aria-hidden="true"><span>Inicio</span><span id="webNavItems">Productos</span><span>Contacto</span></span>
+              </div>
+              <div class="site__hero">
+                <p class="site__title" id="webTitle">Bodega Don Lucho</p>
+                <p class="site__tag" id="webTag"></p>
+                <span class="site__cta" id="webCta">Pedir por WhatsApp</span>
+              </div>
+              <div class="site__body">
+                <p class="site__h" id="webSection">Lo más pedido</p>
+                <ul class="site__grid" id="webItems"></ul>
+              </div>
+              <div class="site__foot">
+                <span id="webHours"></span>
+                <span>Tu dirección · Tus redes</span>
+              </div>
+              <p class="site__legal" id="webLegal" hidden>Tomar bebidas alcohólicas en exceso es dañino.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="features">
+      <div>
+        <h3>Qué incluye</h3>
+        <ul>
+          <li>Diseño a partir de tu logo, tus colores y tus fotos.</li>
+          <li>Se ve bien en celular, tablet y computadora.</li>
+          <li>Botones que abren WhatsApp con el mensaje ya escrito.</li>
+          <li>Tu horario, tu ubicación en el mapa y tus redes sociales.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Para que te encuentren</h3>
+        <ul>
+          <li>Título, descripción y vista previa al compartir el enlace, listos para Google y WhatsApp.</li>
+          <li>Te ayudo a crear o conectar tu Perfil de Empresa en Google Maps.</li>
+          <li>Carga rápido, incluso con datos móviles.</li>
+          <li>Dominio propio (.com o .pe), registrado a tu nombre.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Después de publicarla</h3>
+        <ul>
+          <li>Cambios de precios, fotos y textos: me escribes y los hago.</li>
+          <li>Alojamiento y conexión segura (https).</li>
+          <li>Puedes empezar con una página sencilla y sumar catálogo o tienda después.</li>
+          <li>Si luego quieres una caja, se conecta con Caserito POS.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="plans">
+      <div class="plans__head">
+        <h3>Tipos de página</h3>
+        <p>El precio depende de cuántas secciones y productos lleve. Te lo paso por WhatsApp cuando me cuentes qué necesitas. Esta página que estás viendo también la hice yo.</p>
+      </div>
+      <div class="plans__grid">
+        <article class="plan">
+          <h4 class="plan__name">Presentación</h4>
+          <p class="plan__for">Para que te encuentren y te escriban.</p>
+          <ul>
+            <li>Una sola página</li>
+            <li>Quiénes son y qué ofrecen</li>
+            <li>Horario, mapa y redes</li>
+            <li>Botón de WhatsApp</li>
+            <li>Lista para Google</li>
+          </ul>
+          <a class="btn btn--wa btn--block" data-wa="Hola Alvaro, quiero el precio de una página web de Presentación." href="#contacto">Consultar precio</a>
+        </article>
+        <article class="plan plan--main">
+          <p class="plan__flag">Recomendada</p>
+          <h4 class="plan__name">Negocio</h4>
+          <p class="plan__for">Para mostrar tus productos o tu carta.</p>
+          <ul>
+            <li>Todo lo de Presentación</li>
+            <li>Varias secciones</li>
+            <li>Catálogo o carta con fotos y precios</li>
+            <li>Formulario que llega a tu WhatsApp</li>
+            <li>Cambios mensuales incluidos</li>
+          </ul>
+          <a class="btn btn--wa btn--block" data-wa="Hola Alvaro, quiero el precio de una página web de Negocio." href="#contacto">Consultar precio</a>
+        </article>
+        <article class="plan">
+          <h4 class="plan__name">Tienda</h4>
+          <p class="plan__for">Para recibir pedidos desde la página.</p>
+          <ul>
+            <li>Todo lo de Negocio</li>
+            <li>Carrito de compras</li>
+            <li>El pedido llega armado a tu WhatsApp</li>
+            <li>Categorías y buscador</li>
+            <li>Zonas y costo de delivery</li>
+          </ul>
+          <a class="btn btn--wa btn--block" data-wa="Hola Alvaro, quiero el precio de una página web con Tienda." href="#contacto">Consultar precio</a>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- APIFACT -->
 <section class="section product product--apifact" id="apifact">
   <div class="wrap">
@@ -505,7 +664,7 @@
         <li>Sistemas a medida para procesos que ningún programa de tienda resuelve.</li>
         <li>Integración con facturación electrónica SUNAT.</li>
         <li>Automatizaciones: lectura de boletas, avisos y reportes que llegan solos.</li>
-        <li>Aplicaciones para celular y páginas web.</li>
+        <li>Aplicaciones para celular.</li>
       </ul>
 
       <h3>Con qué trabajo</h3>
@@ -533,6 +692,10 @@
       <details>
         <summary>¿Emite boletas y facturas electrónicas?</summary>
         <p>Caserito deja cada comprobante en cola junto con la venta y lo emite con un proveedor autorizado (OSE). ApiFact ya envía facturas y boletas al entorno de pruebas de SUNAT, pero todavía no está habilitada para producción. Te confirmo el estado exacto para tu caso antes de instalar.</p>
+      </details>
+      <details>
+        <summary>¿Qué necesito para tener mi página web?</summary>
+        <p>Tu logo si lo tienes, fotos de tus productos o de tu local, tus precios, tu horario y tu dirección. Si no tienes logo o fotos, vemos juntos cómo resolverlo. El dominio (.com o .pe) se renueva cada año y lo registramos a tu nombre, para que siempre sea tuyo.</p>
       </details>
       <details>
         <summary>¿Necesito comprar computadoras nuevas?</summary>
@@ -563,6 +726,7 @@
         <option>un restaurante</option>
         <option>una distribuidora de gases</option>
         <option>una empresa con sistema propio</option>
+        <option>un negocio que necesita página web</option>
         <option>otro tipo de negocio</option>
       </select>
       <label for="waMsg">Lo que necesito</label>
