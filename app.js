@@ -2,7 +2,7 @@
    CONFIGURACIÓN: cambia aquí tu número de WhatsApp.
    Formato internacional sin "+" ni espacios: 51 + número (Perú).
    ========================================================== */
-const WHATSAPP_NUMBER = "51999999999";
+const WHATSAPP_NUMBER = "51908538355";
 
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
