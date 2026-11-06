@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="es-PE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alvaro Vega · Software para negocios</title>
+  <meta name="description" content="Sistemas de caja, inventario y facturación electrónica para bodegas, licorerías, restaurantes y distribuidoras de gas en Perú. Pruébalos aquí mismo.">
+  <meta name="theme-color" content="#14203A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    /* Oculta el hero solo si habrá animación; si GSAP no carga en 1.5 s, se muestra igual. */
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("motion");
+      setTimeout(function () { if (!window.gsap) document.documentElement.classList.remove("motion"); }, 1500);
+    }
+  </script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#inicio" aria-label="Alvaro Vega, inicio">
+      <span class="brand__tag" aria-hidden="true">AV</span>
+      <span class="brand__name">Alvaro Vega</span>
+    </a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#soluciones">Soluciones</a>
+      <a href="#caserito">Caserito POS</a>
+      <a href="#vegafact">VegaFact</a>
+      <a href="#apifact">ApiFact</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <span class="nav__ind" aria-hidden="true"></span>
+    </nav>
+    <a class="btn btn--wa btn--sm" data-wa="Hola Alvaro, vi tu página y quiero conversar sobre un sistema para mi negocio." href="#contacto">WhatsApp</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <h1>Programas para negocios que venden todos los días.</h1>
+      <p class="lead">Soy Alvaro Vega. Hago sistemas de caja, inventario y facturación electrónica para bodegas, licorerías, restaurantes y distribuidoras en Perú. Siguen vendiendo aunque se caiga el internet.</p>
+      <div class="actions">
+        <a class="btn btn--wa" data-wa="Hola Alvaro, quiero que me cuentes qué sistema le sirve a mi negocio." href="#contacto">Escribirme por WhatsApp</a>
+        <a class="btn btn--ghost" href="#caserito-demo">Probar la caja</a>
+      </div>
+      <ul class="hero__facts">
+        <li><strong>3 sistemas</strong> en uso y desarrollo, hechos de punta a punta</li>
+        <li><strong>Soles, IGV y SUNAT</strong> desde el primer día</li>
+        <li><strong>Trato directo</strong> conmigo, sin intermediarios</li>
+      </ul>
+    </div>
+
+    <figure class="hero__ticket" aria-label="Ticket de presentación de Alvaro Vega">
+      <div class="printer" aria-hidden="true"><span></span></div>
+      <div class="paper paper--hero" id="heroTicket">
+        <div class="paper__in">
+          <p class="t-center t-strong">ALVARO VEGA</p>
+          <p class="t-center">Desarrollo de software</p>
+          <p class="t-center">Perú</p>
+          <p class="t-rule"></p>
+          <p class="t-center t-strong">TICKET DE PRESENTACIÓN</p>
+          <p class="t-center">N.º 0001-000001</p>
+          <p class="t-rule"></p>
+          <p class="t-row"><span>Sistema de caja (POS)</span><span>1</span></p>
+          <p class="t-row"><span>Facturación SUNAT</span><span>1</span></p>
+          <p class="t-row"><span>Inventario y almacenes</span><span>1</span></p>
+          <p class="t-row"><span>Sistemas a medida</span><span>1</span></p>
+          <p class="t-row"><span>Soporte por WhatsApp</span><span>1</span></p>
+          <p class="t-rule"></p>
+          <p class="t-row t-strong"><span>TOTAL</span><span>Lo que necesites</span></p>
+          <p class="t-rule"></p>
+          <p class="t-center">Funciona sin internet</p>
+          <p class="t-center">Tus datos, separados y respaldados</p>
+          <div class="barcode" aria-hidden="true"></div>
+          <p class="t-center t-small">¡Gracias por tu visita, caserito!</p>
+        </div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- SOLUCIONES -->
+<section class="section" id="soluciones">
+  <div class="wrap">
+    <h2>¿Qué tipo de negocio tienes?</h2>
+    <p class="section__intro">Elige el tuyo y te digo, sin vueltas, qué te puedo dar.</p>
+
+    <div class="picker">
+      <div class="picker__tabs" role="tablist" aria-label="Tipo de negocio">
+        <button role="tab" aria-selected="true" aria-controls="pick-panel" data-biz="bodega">Bodega o abarrotes</button>
+        <button role="tab" aria-selected="false" aria-controls="pick-panel" data-biz="licoreria">Licorería</button>
+        <button role="tab" aria-selected="false" aria-controls="pick-panel" data-biz="restaurante">Restaurante</button>
+        <button role="tab" aria-selected="false" aria-controls="pick-panel" data-biz="gas">Distribuidora de gases</button>
+        <button role="tab" aria-selected="false" aria-controls="pick-panel" data-biz="software">Tengo mi propio sistema</button>
+        <button role="tab" aria-selected="false" aria-controls="pick-panel" data-biz="otro">Otro</button>
+      </div>
+      <div class="picker__panel" id="pick-panel" role="tabpanel" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASERITO -->
+<section class="section product product--caserito" id="caserito">
+  <div class="wrap">
+    <div class="product__head">
+      <div>
+        <p class="product__kind">Sistema de caja para tiendas, licorerías y restaurantes</p>
+        <h2 class="product__name">Caserito POS</h2>
+      </div>
+      <p class="product__pitch">Vendes, cobras y emites boletas desde una sola pantalla. Si se va el internet, la caja sigue vendiendo y manda todo a SUNAT cuando vuelve la conexión.</p>
+    </div>
+
+    <div class="demo" id="caserito-demo">
+      <div class="demo__bar">
+        <p class="demo__title">Pruébala aquí mismo. Es una demo: no guarda nada ni tiene valor tributario.</p>
+        <label class="switch">
+          <input type="checkbox" id="netToggle" checked>
+          <span class="switch__track" aria-hidden="true"></span>
+          <span class="switch__label" id="netLabel">Con internet</span>
+        </label>
+      </div>
+
+      <div class="pos">
+        <div class="pos__left">
+          <form class="scan" id="scanForm" autocomplete="off">
+            <label for="scanInput">Escanea o escribe</label>
+            <div class="scan__row">
+              <input id="scanInput" type="text" inputmode="text" placeholder="Ej.: 6*7751001 o pilsen">
+              <button class="btn btn--ink btn--sm" type="submit">Agregar</button>
+            </div>
+            <p class="scan__msg" id="scanMsg" aria-live="polite">Truco: escribe <kbd>6*</kbd> antes del código para agregar 6 unidades.</p>
+          </form>
+          <div class="pos__grid" id="posGrid"></div>
+        </div>
+
+        <div class="pos__right">
+          <div class="cart">
+            <div class="cart__head">
+              <span>Venta actual</span>
+              <span class="sync" id="syncBadge">Todo enviado</span>
+            </div>
+            <ul class="cart__list" id="cartList"></ul>
+            <dl class="cart__sum" id="cartSum"></dl>
+            <div class="cart__bar">
+              <div>
+                <span class="cart__label">Total</span>
+                <span class="cart__total" id="cartTotal">S/ 0.00</span>
+              </div>
+              <button class="btn btn--price" id="payBtn" disabled>Cobrar</button>
+            </div>
+          </div>
+
+          <div class="pay" id="payPanel" hidden>
+            <div class="pay__head">
+              <h3>Cobro</h3>
+              <button class="link" id="payClose" type="button">Volver a la venta</button>
+            </div>
+            <div class="pay__methods" role="radiogroup" aria-label="Medio de pago">
+              <button role="radio" aria-checked="true" data-method="efectivo">Efectivo</button>
+              <button role="radio" aria-checked="false" data-method="qr">Yape / QR</button>
+              <button role="radio" aria-checked="false" data-method="fiado">Fiado</button>
+            </div>
+            <div class="pay__body" id="payBody"></div>
+            <p class="pay__err" id="payErr" role="alert"></p>
+            <button class="btn btn--price btn--block" id="payConfirm">Confirmar cobro</button>
+          </div>
+        </div>
+
+        <aside class="pos__out">
+          <h3 class="tour__title">Prueba esto</h3>
+          <ol class="tour" id="tour">
+            <li data-task="tap">Toca un producto para agregarlo.</li>
+            <li data-task="scan">Escribe <kbd>6*7751001</kbd> y pulsa Enter.</li>
+            <li data-task="offline">Apaga el internet arriba y cobra una venta.</li>
+            <li data-task="fiado">Cobra al fiado a María Flores.</li>
+          </ol>
+          <div class="receipt-slot" id="receiptSlot">
+            <p class="receipt-slot__empty">Aquí sale la boleta cuando cobres.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <div class="features">
+      <div>
+        <h3>En la caja</h3>
+        <ul>
+          <li>Escáner rápido: <kbd>6*</kbd> + código, Enter, y F12 para cobrar.</li>
+          <li>Presentaciones: vendes la unidad, el six-pack o la caja y el stock se descuenta solo.</li>
+          <li>Fiado con límite por cliente y recordatorio por WhatsApp.</li>
+          <li>Cobro con QR que se confirma solo cuando llega el pago.</li>
+          <li>Impresora térmica, gaveta de dinero y balanza.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>En el restaurante</h3>
+        <ul>
+          <li>Plano de mesas con estado: libre, ocupada, cuenta pedida.</li>
+          <li>Pantalla de cocina por estación, con alerta a los 10 y 15 minutos.</li>
+          <li>Dividir la cuenta, unir mesas y cobrar con propina.</li>
+          <li>Recetas: al vender un plato bajan sus insumos.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>En la gestión</h3>
+        <ul>
+          <li>Boletas y facturas electrónicas, anulaciones con PIN del supervisor.</li>
+          <li>Inventario, conteo físico, mermas y transferencias entre sucursales.</li>
+          <li>Reportes: ventas por hora, más vendidos, margen y productos que no rotan.</li>
+          <li>Publicidad lista para WhatsApp e Instagram, con la advertencia legal de licores puesta.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="plans" id="planes">
+      <div class="plans__head">
+        <h3>Planes mensuales</h3>
+        <p>Pagas una suscripción mensual según cuántas cajas y locales tengas. Te paso el precio exacto por WhatsApp, después de conocer tu negocio.</p>
+      </div>
+      <div class="plans__grid">
+        <article class="plan">
+          <h4 class="plan__name">Caja</h4>
+          <p class="plan__for">Para la bodega o licorería de un solo local.</p>
+          <ul>
+            <li>1 caja</li>
+            <li>Ventas sin internet</li>
+            <li>Boletas y facturas electrónicas</li>
+            <li>Inventario, clientes y fiado</li>
+            <li>Reportes de ventas</li>
+          </ul>
+          <a class="btn btn--wa btn--block" data-wa="Hola Alvaro, quiero el precio del plan Caja de Caserito POS." href="#contacto">Consultar precio</a>
+        </article>
+        <article class="plan plan--main">
+          <p class="plan__flag">El más pedido</p>
+          <h4 class="plan__name">Negocio</h4>
+          <p class="plan__for">Para restaurantes y tiendas con más movimiento.</p>
+          <ul>
+            <li>Todo lo del plan Caja</li>
+            <li>Varias cajas en el mismo local</li>
+            <li>Mesas, cocina y recetas</li>
+            <li>Cobro con QR automático</li>
+            <li>Publicidad con textos generados por IA</li>
+          </ul>
+          <a class="btn btn--wa btn--block" data-wa="Hola Alvaro, quiero el precio del plan Negocio de Caserito POS." href="#contacto">Consultar precio</a>
+        </article>
+        <article class="plan">
+          <h4 class="plan__name">Cadena</h4>
+          <p class="plan__for">Para quien tiene dos o más locales.</p>
+          <ul>
+            <li>Todo lo del plan Negocio</li>
+            <li>Varias sucursales</li>
+            <li>Transferencias de mercadería</li>
+            <li>Perfil y módulos por local</li>
+            <li>Atención prioritaria</li>
+          </ul>
+          <a class="btn btn--wa btn--block" data-wa="Hola Alvaro, quiero el precio del plan Cadena de Caserito POS." href="#contacto">Consultar precio</a>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VEGAFACT -->
+<section class="section product product--vegafact" id="vegafact">
+  <div class="wrap">
+    <div class="product__head">
+      <div>
+        <p class="product__kind">Gestión para distribuidoras de gases</p>
+        <h2 class="product__name">VegaFact</h2>
+      </div>
+      <p class="product__pitch">Sabes dónde está cada cilindro, quién lo tiene, cuántos días lleva y cuánto te debe. Ventas, alquileres, garantías, caja, compras, almacenes y reparto en un mismo sistema.</p>
+    </div>
+
+    <div class="demo demo--light" id="vegafact-demo">
+      <div class="demo__bar">
+        <p class="demo__title">Sigue un cilindro de principio a fin. Toca el siguiente paso.</p>
+        <button class="link" id="cylReset" type="button">Empezar de nuevo</button>
+      </div>
+      <div class="cyl">
+        <div class="cyl__visual">
+          <svg class="cyl__svg" viewBox="0 0 120 260" role="img" aria-labelledby="cylSvgTitle">
+            <title id="cylSvgTitle">Cilindro de oxígeno</title>
+            <rect x="50" y="6" width="20" height="18" rx="3" class="cyl__valve"/>
+            <rect x="42" y="20" width="36" height="12" rx="4" class="cyl__valve"/>
+            <rect x="18" y="34" width="84" height="218" rx="38" class="cyl__body"/>
+            <clipPath id="cylClip"><rect x="18" y="34" width="84" height="218" rx="38"/></clipPath>
+            <rect id="cylFill" x="18" y="34" width="84" height="218" class="cyl__fill" clip-path="url(#cylClip)"/>
+            <rect x="30" y="120" width="60" height="44" rx="4" class="cyl__label"/>
+            <g class="cyl__qr" aria-hidden="true">
+              <rect x="38" y="127" width="10" height="10"/><rect x="72" y="127" width="10" height="10"/><rect x="38" y="147" width="10" height="10"/>
+              <rect x="54" y="129" width="6" height="6"/><rect x="62" y="139" width="6" height="6"/><rect x="54" y="149" width="6" height="6"/><rect x="72" y="149" width="6" height="6"/>
+            </g>
+          </svg>
+          <p class="cyl__id">CIL-0482 · Oxígeno industrial 10 m³</p>
+        </div>
+
+        <div class="cyl__main">
+          <ol class="route" id="cylRoute" aria-label="Ubicación del cilindro">
+            <li data-st="almacen">Almacén, lleno</li>
+            <li data-st="cliente">Con el cliente</li>
+            <li data-st="devuelto">Devuelto, en inspección</li>
+          </ol>
+          <dl class="cyl__stats" id="cylStats"></dl>
+          <div class="cyl__actions" id="cylActions"></div>
+        </div>
+
+        <div class="cyl__log">
+          <h3>Historial del cilindro</h3>
+          <ol id="cylLog" aria-live="polite"></ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="features">
+      <div>
+        <h3>Cilindros y alquileres</h3>
+        <ul>
+          <li>Etiqueta QR por cilindro y su historial completo.</li>
+          <li>Cargos de alquiler por período, sin cobros duplicados.</li>
+          <li>Garantías: se cobran, se aplican a deudas o se devuelven.</li>
+          <li>Mantenimiento e inspecciones registradas.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Dinero</h3>
+        <ul>
+          <li>Caja con apertura, arqueo y cierre que no se puede alterar.</li>
+          <li>Compras, proveedores, cuentas por pagar y órdenes con recepción parcial.</li>
+          <li>Anulaciones y reembolsos con motivo y responsable.</li>
+          <li>Constancias en PDF y exportación a Excel (CSV).</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Operación</h3>
+        <ul>
+          <li>Varios almacenes y transferencias entre ellos.</li>
+          <li>Reparto con evidencia de entrega.</li>
+          <li>Usuarios con permisos según su cargo.</li>
+          <li>Respaldo completo con un clic, y restauración probada.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cta-band">
+      <p>VegaFact se adapta a cada distribuidora. Cuéntame cuántos cilindros mueves y te armo una propuesta.</p>
+      <a class="btn btn--wa" data-wa="Hola Alvaro, tengo una distribuidora de gases y me interesa VegaFact." href="#contacto">Pedir propuesta por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- APIFACT -->
+<section class="section product product--apifact" id="apifact">
+  <div class="wrap">
+    <div class="product__head">
+      <div>
+        <p class="product__kind">Para programadores y empresas con sistema propio</p>
+        <h2 class="product__name">ApiFact</h2>
+      </div>
+      <p class="product__pitch">Una API para que tu sistema emita facturas, boletas y notas a SUNAT. Tú mandas un JSON; ella arma el XML, lo firma, lo envía y te devuelve la respuesta de SUNAT.</p>
+    </div>
+
+    <div class="demo demo--code" id="apifact-demo">
+      <div class="demo__bar">
+        <p class="demo__title">Así viaja una factura. Hoy funciona en el entorno de pruebas (beta) de SUNAT; todavía no emite en producción.</p>
+      </div>
+      <div class="api">
+        <pre class="api__req" tabindex="0" aria-label="Ejemplo de solicitud"><code><span class="c-k">POST</span> /v1/documents
+<span class="c-m">Authorization: Bearer sk_emisor_…</span>
+<span class="c-m">Idempotency-Key: venta-000087</span>
+
+{
+  <span class="c-s">"type"</span>: <span class="c-v">"01"</span>,
+  <span class="c-s">"series"</span>: <span class="c-v">"F001"</span>,
+  <span class="c-s">"number"</span>: <span class="c-n">87</span>,
+  <span class="c-s">"currency"</span>: <span class="c-v">"PEN"</span>,
+  <span class="c-s">"customer"</span>: {
+    <span class="c-s">"ruc"</span>: <span class="c-v">"20601234567"</span>,
+    <span class="c-s">"name"</span>: <span class="c-v">"Metalmecánica Santa Rosa SAC"</span>
+  },
+  <span class="c-s">"items"</span>: [{
+    <span class="c-s">"description"</span>: <span class="c-v">"Recarga oxígeno 10 m³"</span>,
+    <span class="c-s">"quantity"</span>: <span class="c-n">2</span>,
+    <span class="c-s">"unitPrice"</span>: <span class="c-n">59.00</span>,
+    <span class="c-s">"igv"</span>: <span class="c-v">"gravado"</span>
+  }]
+}</code></pre>
+        <div class="api__flow">
+          <ol class="steps" id="apiSteps">
+            <li>Validar datos y calcular IGV</li>
+            <li>Generar XML UBL 2.1</li>
+            <li>Firmar con tu certificado</li>
+            <li>Comprimir en ZIP</li>
+            <li>Enviar a SUNAT</li>
+            <li>Leer la constancia (CDR)</li>
+          </ol>
+          <label class="check">
+            <input type="checkbox" id="apiTimeout">
+            <span>Simular que SUNAT no responde</span>
+          </label>
+          <div class="api__actions">
+            <button class="btn btn--ink" id="apiSend">Enviar factura F001-87</button>
+            <button class="btn btn--ghost" id="apiRepeat" hidden>Enviarla otra vez</button>
+          </div>
+          <div class="api__result" id="apiResult" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="features features--two">
+      <div>
+        <h3>Qué hace</h3>
+        <ul>
+          <li>Facturas, boletas, notas de crédito y débito.</li>
+          <li>Resumen diario de boletas y comunicación de baja.</li>
+          <li>Consulta de RUC desde el padrón de SUNAT para autocompletar clientes.</li>
+          <li>Varias empresas en una sola instalación, cada una con su clave y su certificado.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Por qué es segura</h3>
+        <ul>
+          <li>Si repites una solicitud, no se crea un comprobante duplicado.</li>
+          <li>Si SUNAT no responde, no reenvía a ciegas: queda marcado para revisar.</li>
+          <li>Certificados guardados cifrados (AES-256-GCM).</li>
+          <li>Cada clave solo ve los comprobantes de su empresa.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cta-band">
+      <p>¿Quieres conectar tu sistema cuando esté lista para producción? Te aviso primero.</p>
+      <a class="btn btn--wa" data-wa="Hola Alvaro, quiero integrar ApiFact con mi sistema." href="#contacto">Hablar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="section" id="proceso">
+  <div class="wrap">
+    <h2>Cómo empezamos</h2>
+    <p class="section__intro">De la primera conversación a tu primera venta con el sistema.</p>
+    <ol class="process">
+      <li>
+        <h3>Me escribes</h3>
+        <p>Por WhatsApp me cuentas qué vendes, cuántas cajas tienes y qué te complica hoy.</p>
+      </li>
+      <li>
+        <h3>Te muestro la demo con tus productos</h3>
+        <p>Ves cómo quedaría tu caja antes de pagar nada.</p>
+      </li>
+      <li>
+        <h3>Instalo y cargo tu catálogo</h3>
+        <p>Productos, precios, presentaciones y datos de tu RUC para facturar.</p>
+      </li>
+      <li>
+        <h3>Enseño a tu equipo</h3>
+        <p>Cajeros y encargados aprenden a vender, cobrar, anular y cerrar caja.</p>
+      </li>
+      <li>
+        <h3>Te acompaño</h3>
+        <p>Dudas, cambios y mejoras por WhatsApp, directamente conmigo.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- SOBRE MI -->
+<section class="section about" id="sobre-mi">
+  <div class="wrap about__grid">
+    <div class="about__photo">
+      <!-- Reemplaza este bloque por <img src="foto.jpg" alt="Alvaro Vega"> -->
+      <div class="portrait" role="img" aria-label="Foto de Alvaro Vega (pendiente)"><span>AV</span></div>
+      <dl class="about__card">
+        <div><dt>Nombre</dt><dd>Alvaro Octavio Vega Ticliahuanca</dd></div>
+        <div><dt>Hago</dt><dd>Software para negocios</dd></div>
+        <div><dt>Desde</dt><dd>Perú</dd></div>
+        <div><dt>Atiendo</dt><dd>Por WhatsApp</dd></div>
+      </dl>
+    </div>
+
+    <div class="about__text">
+      <h2>Sobre mí</h2>
+      <p class="lead">Me llamo Alvaro y hago software para negocios que no pueden darse el lujo de detenerse. Vendo, instalo y doy soporte yo mismo: hablas con quien escribió el código.</p>
+      <p>Cada sistema de esta página lo diseñé y programé de punta a punta: la pantalla que usa el cajero, el servidor, la base de datos y las pruebas automáticas que revisan que todo cuadre. Los hice pensando en problemas reales: el internet que se cae a la hora punta, el vecino al que le fías, el cilindro que nadie sabe dónde quedó, la boleta que SUNAT rechaza.</p>
+
+      <h3>Lo que cuido en todo lo que hago</h3>
+      <ul class="principles">
+        <li><strong>Que no se detenga la venta.</strong> La caja guarda todo en el equipo y lo envía cuando vuelve la conexión.</li>
+        <li><strong>Que tus datos sean solo tuyos.</strong> Cada negocio queda aislado en la base de datos; uno no puede ver lo de otro.</li>
+        <li><strong>Que las cuentas cuadren.</strong> El dinero se calcula en céntimos y el IGV con reglas probadas, para que no aparezcan centavos de más ni de menos.</li>
+        <li><strong>Que puedas recuperarte.</strong> Los respaldos se verifican y la restauración está probada, no solo prometida.</li>
+        <li><strong>Que sepas qué falta.</strong> Si algo todavía no está listo, te lo digo antes de que lo compres.</li>
+      </ul>
+
+      <h3>Otros servicios</h3>
+      <ul class="services">
+        <li>Sistemas a medida para procesos que ningún programa de tienda resuelve.</li>
+        <li>Integración con facturación electrónica SUNAT.</li>
+        <li>Automatizaciones: lectura de boletas, avisos y reportes que llegan solos.</li>
+        <li>Aplicaciones para celular y páginas web.</li>
+      </ul>
+
+      <h3>Con qué trabajo</h3>
+      <ul class="stack">
+        <li>TypeScript</li><li>React</li><li>Node.js</li><li>NestJS</li><li>PostgreSQL</li><li>Prisma</li>
+        <li>Python</li><li>FastAPI</li><li>Flutter</li><li>Java y Spring</li><li>Docker</li><li>Playwright</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="preguntas">
+  <div class="wrap faq">
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq__list">
+      <details>
+        <summary>¿Cuánto cuesta?</summary>
+        <p>Caserito POS se paga con una suscripción mensual que depende de cuántas cajas y locales tengas. VegaFact y los sistemas a medida se cotizan según tu operación. En los dos casos te paso el precio por WhatsApp después de conocer tu negocio.</p>
+      </details>
+      <details>
+        <summary>¿Qué pasa si se cae el internet?</summary>
+        <p>En Caserito sigues vendiendo, cobrando y fiando. Las ventas quedan guardadas en la caja y se envían solas cuando vuelve la conexión. Las mesas y la cocina sí necesitan conexión con el servidor, porque varias pantallas comparten las cuentas.</p>
+      </details>
+      <details>
+        <summary>¿Emite boletas y facturas electrónicas?</summary>
+        <p>Caserito deja cada comprobante en cola junto con la venta y lo emite con un proveedor autorizado (OSE). ApiFact ya envía facturas y boletas al entorno de pruebas de SUNAT, pero todavía no está habilitada para producción. Te confirmo el estado exacto para tu caso antes de instalar.</p>
+      </details>
+      <details>
+        <summary>¿Necesito comprar computadoras nuevas?</summary>
+        <p>Normalmente no. La caja funciona en el navegador de una PC o laptop que ya tengas. La impresora térmica y la balanza se conectan por USB o puerto serie.</p>
+      </details>
+      <details>
+        <summary>¿Mis datos están seguros?</summary>
+        <p>Cada negocio está separado en la base de datos, las contraseñas y certificados se guardan cifrados y puedes sacar respaldos completos. Nunca uso los datos de un cliente para pruebas.</p>
+      </details>
+      <details>
+        <summary>¿Quién me ayuda si tengo un problema?</summary>
+        <p>Yo. Me escribes por WhatsApp y te respondo directamente.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact" id="contacto">
+  <div class="wrap contact__in">
+    <h2>Cuéntame cómo vendes y te digo qué te sirve.</h2>
+    <p>Respondo personalmente. Si ya sabes qué sistema quieres, menciónalo en tu mensaje.</p>
+    <form class="contact__form" id="waForm">
+      <label for="waBiz">Mi negocio es</label>
+      <select id="waBiz">
+        <option>una bodega o tienda de abarrotes</option>
+        <option>una licorería</option>
+        <option>un restaurante</option>
+        <option>una distribuidora de gases</option>
+        <option>una empresa con sistema propio</option>
+        <option>otro tipo de negocio</option>
+      </select>
+      <label for="waMsg">Lo que necesito</label>
+      <textarea id="waMsg" rows="3" placeholder="Ej.: tengo 2 cajas y quiero facturar electrónicamente"></textarea>
+      <button class="btn btn--wa btn--block" type="submit">Enviar por WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>Alvaro Vega, desarrollo de software. Perú.</p>
+    <p>Las demos de esta página son simulaciones y no emiten comprobantes reales.</p>
+  </div>
+</footer>
+
+<a class="wa-float" data-wa="Hola Alvaro, vi tu página y tengo una consulta." href="#contacto" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></svg>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="motion.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
