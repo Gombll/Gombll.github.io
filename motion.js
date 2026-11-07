@@ -1,6 +1,6 @@
 /* ==========================================================
    Movimiento (GSAP + ScrollTrigger)
-   Regla: una sola secuencia sin interacción (la boleta del hero),
+   Regla: una sola secuencia sin interacción (el monograma del hero),
    dos efectos de scroll con significado (nombres de producto y
    la ruta de "Cómo empezamos"), y el resto solo responde a acciones.
    app.js llama a window.Motion?.x(); si GSAP no carga, nada se rompe.
@@ -75,25 +75,21 @@
   }
   M.enabled = true;
 
-  /* ---------- Hero: la boleta se imprime ---------- */
-  const paper = document.querySelector("#heroTicket");
-  gsap.set(paper, { clipPath: "inset(0% 0% 100% 0%)" });
+  /* ---------- Hero: el monograma metálico se enciende ---------- */
   const hero = gsap.timeline({ defaults: { ease: "power3.out" } });
   hero
-    .fromTo(".hero h1", { autoAlpha: 0, y: 32 }, { autoAlpha: 1, y: 0, duration: 0.9 })
+    .fromTo(".hero .eyebrow", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.5 })
+    .fromTo(".hero h1", { autoAlpha: 0, y: 32 }, { autoAlpha: 1, y: 0, duration: 0.9 }, "-=0.3")
     .fromTo(".hero .lead", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.6 }, "-=0.55")
     .fromTo(".hero .actions > *", { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.08 }, "-=0.4")
     .fromTo(".hero__facts", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5 }, "-=0.25")
-    .fromTo(".printer", { autoAlpha: 0, y: -10 }, { autoAlpha: 1, y: 0, duration: 0.45 }, 0.25)
-    .addLabel("print", 0.6)
-    // La boleta se desenrolla hacia abajo desde la ranura, con el salto de una impresora térmica.
+    // La luz sube sobre el metal: de casi apagado a su brillo normal.
     .fromTo(
-      paper,
-      { clipPath: "inset(0% 0% 100% 0%)" },
-      { clipPath: "inset(0% 0% 0% 0%)", duration: 2, ease: "steps(26)" },
-      "print"
-    )
-    .to(paper, { rotation: -1.6, transformOrigin: "50% 0%", duration: 0.7, ease: "back.out(3)" }, ">-0.05");
+      ".hero__mark img",
+      { autoAlpha: 0, scale: 0.94, filter: "brightness(0.25)" },
+      { autoAlpha: 1, scale: 1, filter: "brightness(1)", duration: 1.8, ease: "power2.out" },
+      0.2
+    );
 
   /* ---------- Scroll: nombres de producto ---------- */
   if (window.ScrollTrigger) {

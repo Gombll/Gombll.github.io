@@ -5,10 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Alvaro Vega · Software para negocios</title>
   <meta name="description" content="Sistemas de caja, inventario y facturación electrónica, y páginas web para bodegas, licorerías, restaurantes y distribuidoras de gas en Perú. Pruébalos aquí mismo.">
-  <meta name="theme-color" content="#14203A">
+  <meta name="theme-color" content="#0B0C0E">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Alvaro Vega · Software para negocios">
+  <meta property="og:description" content="Sistemas de caja, facturación electrónica y páginas web para negocios en Perú.">
+  <meta property="og:image" content="https://gombll.github.io/assets/og-image.jpg">
+  <meta property="og:url" content="https://gombll.github.io/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Michroma&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script>
     /* Oculta el hero solo si habrá animación; si GSAP no carga en 1.5 s, se muestra igual. */
@@ -24,8 +33,8 @@
 <header class="top">
   <div class="wrap top__in">
     <a class="brand" href="#inicio" aria-label="Alvaro Vega, inicio">
-      <span class="brand__tag" aria-hidden="true">AV</span>
-      <span class="brand__name">Alvaro Vega</span>
+      <img class="brand__full" src="assets/av-horizontal-white.svg" alt="" width="164" height="34">
+      <img class="brand__mark" src="assets/av-symbol-white.svg" alt="" width="34" height="34">
     </a>
     <nav class="nav" aria-label="Secciones">
       <a href="#soluciones">Soluciones</a>
@@ -46,6 +55,7 @@
 <section class="hero" id="inicio">
   <div class="wrap hero__grid">
     <div class="hero__copy">
+      <p class="eyebrow">Alvaro Vega · Desarrollo de software</p>
       <h1>Programas para negocios que venden todos los días.</h1>
       <p class="lead">Soy Alvaro Vega. Hago sistemas de caja, inventario y facturación electrónica para bodegas, licorerías, restaurantes y distribuidoras en Perú, y también la página web de tu negocio. Mis sistemas siguen vendiendo aunque se caiga el internet.</p>
       <div class="actions">
@@ -59,32 +69,8 @@
       </ul>
     </div>
 
-    <figure class="hero__ticket" aria-label="Ticket de presentación de Alvaro Vega">
-      <div class="printer" aria-hidden="true"><span></span></div>
-      <div class="paper paper--hero" id="heroTicket">
-        <div class="paper__in">
-          <p class="t-center t-strong">ALVARO VEGA</p>
-          <p class="t-center">Desarrollo de software</p>
-          <p class="t-center">Perú</p>
-          <p class="t-rule"></p>
-          <p class="t-center t-strong">TICKET DE PRESENTACIÓN</p>
-          <p class="t-center">N.º 0001-000001</p>
-          <p class="t-rule"></p>
-          <p class="t-row"><span>Sistema de caja (POS)</span><span>1</span></p>
-          <p class="t-row"><span>Facturación SUNAT</span><span>1</span></p>
-          <p class="t-row"><span>Inventario y almacenes</span><span>1</span></p>
-          <p class="t-row"><span>Páginas web</span><span>1</span></p>
-          <p class="t-row"><span>Sistemas a medida</span><span>1</span></p>
-          <p class="t-row"><span>Soporte por WhatsApp</span><span>1</span></p>
-          <p class="t-rule"></p>
-          <p class="t-row t-strong"><span>TOTAL</span><span>Lo que necesites</span></p>
-          <p class="t-rule"></p>
-          <p class="t-center">Funciona sin internet</p>
-          <p class="t-center">Tus datos, separados y respaldados</p>
-          <div class="barcode" aria-hidden="true"></div>
-          <p class="t-center t-small">¡Gracias por tu visita, caserito!</p>
-        </div>
-      </div>
+    <figure class="hero__mark">
+      <img src="assets/av-metal.webp" alt="Monograma AV de Alvaro Vega en metal" width="1100" height="1100" fetchpriority="high">
     </figure>
   </div>
 </section>
@@ -635,8 +621,8 @@
 <section class="section about" id="sobre-mi">
   <div class="wrap about__grid">
     <div class="about__photo">
-      <!-- Reemplaza este bloque por <img src="foto.jpg" alt="Alvaro Vega"> -->
-      <div class="portrait" role="img" aria-label="Foto de Alvaro Vega (pendiente)"><span>AV</span></div>
+      <!-- Cuando tengas foto, reemplaza este bloque por <img src="foto.jpg" alt="Alvaro Vega"> -->
+      <div class="portrait"><img src="assets/av-metal.webp" alt="Monograma AV" width="1100" height="1100" loading="lazy"></div>
       <dl class="about__card">
         <div><dt>Nombre</dt><dd>Alvaro Octavio Vega Ticliahuanca</dd></div>
         <div><dt>Hago</dt><dd>Software para negocios</dd></div>
@@ -740,7 +726,8 @@
 
 <footer class="foot">
   <div class="wrap foot__in">
-    <p>Alvaro Vega, desarrollo de software. Perú.</p>
+    <img src="assets/av-horizontal-white.svg" alt="Alvaro Vega" width="193" height="40">
+    <p>Desarrollo de software · Perú</p>
     <p>Las demos de esta página son simulaciones y no emiten comprobantes reales.</p>
   </div>
 </footer>
